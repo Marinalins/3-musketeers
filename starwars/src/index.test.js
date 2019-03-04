@@ -7,25 +7,35 @@ describe('starwars-names', () => {
       expect(starWars.all).toHaveLength(starWarsNames.length)
     });
     test('should be an array of strings', () => {
-      throw new Error('test not yet defined... remove the throw and write your test here');
+      for(var i = 0; i<starWars.all.length; i++){
+        expect(starWars.all[i].constructor.name).toMatch('String');
+      }
     });
 
     test('should contain `Luke Skywalker`', () => {
-      throw new Error('test not yet defined... remove the throw and write your test here');
+      var luke = false;
+      for(var i = 0; i<starWars.all.length; i++){
+        if(starWars.all[i] === 'Luke Skywalker'){
+          luke = true;
+        }
+      }
+      expect(luke).toBeTruthy();
     });
 
     test('should not contain `Ben Quadinaros`', () => {
-      throw new Error('test not yet defined... remove the throw and write your test here');
+      expect(starWars.all).not.toContain('Ben Quadinaros');
     });
   });
 
   describe('random', () => {
     test('should return a random item from the starWars.all', () => {
-      throw new Error('test not yet defined... remove the throw and write your test here');
+      var item = starWars.random();
+      expect(starWars.all).toContain(item);
     });
 
     test('should return an array of random items if passed a number', () => {
-      throw new Error('test not yet defined... remove the throw and write your test here');
+      var number = 3;
+      expect(starWars.random(number).length).toBe(3);
     });
   });
 });
