@@ -23,7 +23,7 @@ const cli = meow(`
 		$ cash --set usd aud
 `);
 
-if (argv.indexOf('--save') !== -1 || argv.indexOf('-s') !== -1) {
+if (argv.indexOf('--set') !== -1 || argv.indexOf('-s') !== -1) {
 	config.set('defaultFrom', argv[1] || config.get('defaultFrom', 'USD'));
 	config.set('defaultTo', (argv.length > 2) ? process.argv.slice(4) : config.get('defaultTo', DEFAULT_TO_CURRENCIES));
 	console.log(chalk.green('Saved default currencies to ' + config.path));
